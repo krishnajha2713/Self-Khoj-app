@@ -121,11 +121,33 @@
             margin-top: 50px;
         }
 
+        /* --- CHATBOT FLOATING STYLES --- */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px; /* Width of the chatbot window */
+            height: 600px; /* Height of the chatbot window */
+            z-index: 9999; /* Ensure it stays above everything */
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
         /* Mobile Adjustments */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
             .nav-flex { flex-direction: column; }
             .grid { grid-template-columns: 1fr; }
+            
+            /* Make chatbot smaller on mobile */
+            .chatbot-container {
+                width: 90%;
+                height: 500px;
+                right: 5%;
+                bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -145,7 +167,7 @@
     <section class="hero">
         <div class="container">
             <h1>Connecting Mind With Your Soul</h1>
-            [span_1](start_span)<p>Harmonizing spiritual well-being with daily productivity[span_1](end_span).</p>
+            <p>Harmonizing spiritual well-being with daily productivity.</p>
             <a href="#" class="btn-primary">Get Started</a>
         </div>
     </section>
@@ -155,25 +177,25 @@
         <div class="grid">
             <div class="card">
                 <h3>The Problem</h3>
-                [span_2](start_span)<p>Over 1 in 7 Indians face mental challenges, and 65% of students report high stress[span_2](end_span). [span_3](start_span)Fragmented apps force users to juggle multiple platforms[span_3](end_span).</p>
+                <p>Over 1 in 7 Indians face mental challenges, and 65% of students report high stress. Fragmented apps force users to juggle multiple platforms.</p>
             </div>
             <div class="card">
                 <h3>Our Solution</h3>
-                [span_4](start_span)[span_5](start_span)<p>A unified ecosystem merging ancient spiritual practices with modern lifestyle tools for students and professionals[span_4](end_span)[span_5](end_span).</p>
+                <p>A unified ecosystem merging ancient spiritual practices with modern lifestyle tools for students and professionals.</p>
             </div>
         </div>
     </section>
 
     <section id="features" style="background:#f9f9f9; padding:60px 0;">
         <div class="container">
-            [span_6](start_span)<h2 style="text-align:center; margin-bottom:40px;">Core Offerings [cite: 83-88]</h2>
+            <h2 style="text-align:center; margin-bottom:40px;">Core Offerings</h2>
             <div class="features-list">
                 <div class="feature-item">
                     <h4>🧘 Yoga & Meditation</h4>
                     <p>Guided routines for mental calm.</p>
                 </div>
                 <div class="feature-item">
-                    <h4>📿 Chanting & Breathing</h4>
+                    <h4>🕉️ Chanting & Breathing</h4>
                     <p>Pranayama and mantra practices.</p>
                 </div>
                 <div class="feature-item">
@@ -189,7 +211,7 @@
     </section>
 
     <section id="tech" class="container">
-        [cite_start]<h2 style="text-align:center; margin-top:40px;">Technology Stack [cite: 97-101]</h2>
+        <h2 style="text-align:center; margin-top:40px;">Technology Stack</h2>
         <div class="grid" style="text-align:center;">
             <div>
                 <strong>Frontend</strong>
@@ -208,10 +230,20 @@
 
     <footer>
         <div class="container">
-            [cite_start]<p>Self Khoj: India's Top Spiritual-Wellness Ecosystem[span_6](end_span)</p>
-            <p style="margin-top:10px; font-size:0.8rem;">Developed by Krishna Datt Jha | [span_7](start_span)Geeta University[span_7](end_span)</p>
+            <p>Self Khoj: India's Top Spiritual-Wellness Ecosystem</p>
+            <p style="margin-top:10px; font-size:0.8rem;">Developed by Krishna Datt Jha | Geeta University</p>
         </div>
     </footer>
+
+    <div class="chatbot-container">
+        <iframe
+            src="https://www.chatbase.co/chatbot-iframe/Df3s06PJk25q7xMaEF0xs"
+            width="100%"
+            style="height: 100%; min-height: 700px"
+            frameborder="0"
+            allow="microphone"
+        ></iframe>
+    </div>
 
 </body>
 </html>
