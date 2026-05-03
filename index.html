@@ -10,7 +10,7 @@
             --accent: #e67e22;
             --light: #f4f7f6;
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         * {
@@ -26,6 +26,7 @@
             background-color: var(--white);
         }
 
+        /* Responsive Container */
         .container {
             width: 90%;
             max-width: 1200px;
@@ -33,6 +34,7 @@
             padding: 20px 0;
         }
 
+        /* Header & Navigation */
         header {
             background: var(--white);
             padding: 1rem 0;
@@ -54,6 +56,7 @@
             color: var(--accent);
         }
 
+        /* Hero Section */
         .hero {
             text-align: center;
             padding: 80px 0;
@@ -62,7 +65,10 @@
             background-size: cover;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
         .btn-primary {
             background: var(--accent);
@@ -74,6 +80,7 @@
             margin-top: 20px;
         }
 
+        /* Problem & Solution Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -88,8 +95,11 @@
             transition: transform 0.3s;
         }
 
-        .card:hover { transform: translateY(-5px); }
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
+        /* Features Section */
         .features-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -103,6 +113,7 @@
             border-radius: 8px;
         }
 
+        /* Footer */
         footer {
             background: var(--primary);
             color: white;
@@ -111,15 +122,13 @@
             margin-top: 50px;
         }
 
-        /* --- ENHANCED CHATBOT STYLES --- */
-        
-        /* Floating Button */
-        #chat-button {
+        /* --- CHATBOT UI --- */
+        #chat-launcher {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 65px;
-            height: 65px;
+            width: 60px;
+            height: 60px;
             background-color: var(--accent);
             border-radius: 50%;
             display: flex;
@@ -128,59 +137,54 @@
             cursor: pointer;
             box-shadow: var(--shadow);
             z-index: 10001;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        #chat-button:hover { transform: scale(1.1) rotate(5deg); }
+        #chat-launcher:hover { transform: scale(1.1); }
 
-        /* The Chat Window */
         #chat-window {
             position: fixed;
-            bottom: 110px;
+            bottom: 100px;
             right: 30px;
             width: 400px;
             height: 600px;
             background: white;
-            border-radius: 16px;
+            border-radius: 15px;
             box-shadow: var(--shadow);
             z-index: 10000;
             display: none;
             flex-direction: column;
             overflow: hidden;
-            animation: slideUp 0.4s ease-out;
-            border: 1px solid rgba(0,0,0,0.05);
+            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Close Button inside Chat */
         .chat-header {
             background: var(--accent);
-            padding: 10px 15px;
-            display: flex;
-            justify-content: flex-end;
+            padding: 10px;
+            text-align: right;
         }
 
-        .close-btn {
-            background: none;
-            border: none;
+        .close-chat {
             color: white;
-            font-size: 20px;
+            font-size: 24px;
             cursor: pointer;
+            padding: 0 10px;
             font-weight: bold;
+            border: none;
+            background: none;
         }
 
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2rem; }
-            #chat-window {
-                width: 85%;
-                height: 70%;
-                right: 7.5%;
-                bottom: 110px;
-            }
+            .nav-flex { flex-direction: column; }
+            .grid { grid-template-columns: 1fr; }
+            #chat-window { width: 90%; height: 70%; right: 5%; bottom: 90px; }
         }
     </style>
 </head>
@@ -223,10 +227,22 @@
         <div class="container">
             <h2 style="text-align:center; margin-bottom:40px;">Core Offerings</h2>
             <div class="features-list">
-                <div class="feature-item"><h4>🧘 Yoga & Meditation</h4><p>Guided routines.</p></div>
-                <div class="feature-item"><h4>🕉️ Chanting</h4><p>Mantra practices.</p></div>
-                <div class="feature-item"><h4>📍 Temple Finder</h4><p>GPS-based tool.</p></div>
-                <div class="feature-item"><h4>📅 Schedule</h4><p>Daily routine tracker.</p></div>
+                <div class="feature-item">
+                    <h4>🧘Yoga & Meditation</h4>
+                    <p>Guided routines for mental calm.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🕉️ Chanting & Breathing</h4>
+                    <p>Pranayama and mantra practices.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📍 Temple Finder</h4>
+                    <p>GPS-based tool for nearby centers.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>📅 Schedule Maker</h4>
+                    <p>Daily routine and discipline tracker.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -234,9 +250,18 @@
     <section id="tech" class="container">
         <h2 style="text-align:center; margin-top:40px;">Technology Stack</h2>
         <div class="grid" style="text-align:center;">
-            <div><strong>Frontend</strong><p>Flutter / React Native</p></div>
-            <div><strong>Backend</strong><p>Firebase / Node.js</p></div>
-            <div><strong>Intelligence</strong><p>AI Suggestions</p></div>
+            <div>
+                <strong>Frontend</strong>
+                <p>Flutter / React Native</p>
+            </div>
+            <div>
+                <strong>Backend</strong>
+                <p>Firebase / Node.js</p>
+            </div>
+            <div>
+                <strong>Intelligence</strong>
+                <p>AI-based Habit Suggestions</p>
+            </div>
         </div>
     </section>
 
@@ -247,7 +272,7 @@
         </div>
     </footer>
 
-    <div id="chat-button" onclick="toggleChat()">
+    <div id="chat-launcher" onclick="toggleChat()">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
@@ -255,7 +280,7 @@
 
     <div id="chat-window">
         <div class="chat-header">
-            <button class="close-btn" onclick="toggleChat()">×</button>
+            <button class="close-chat" onclick="toggleChat()">×</button>
         </div>
         <iframe
             src="https://www.chatbase.co/chatbot-iframe/Df3s06PJk25q7xMaEF0xs"
@@ -267,12 +292,8 @@
 
     <script>
         function toggleChat() {
-            const chatWin = document.getElementById('chat-window');
-            if (chatWin.style.display === 'none' || chatWin.style.display === '') {
-                chatWin.style.display = 'flex';
-            } else {
-                chatWin.style.display = 'none';
-            }
+            const win = document.getElementById('chat-window');
+            win.style.display = (win.style.display === 'none' || win.style.display === '') ? 'flex' : 'none';
         }
     </script>
 
